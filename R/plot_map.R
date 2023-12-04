@@ -1,8 +1,7 @@
 #' Maps the location of the studies on a world map (colored according to number)
 #' @param d the studies to get the countries for for.
 #' @return A histogram showing the countries represented in the study
-#' @importFrom tidyr left_join
-#' @importFrom dplyr group_by summarise mutate arrange
+#' @importFrom dplyr group_by summarise mutate arrange left_join
 #' @importFrom ggplot2 ggplot aes geom_polygon theme_minimal map_data
 #' @export
 plot_map = function(d){

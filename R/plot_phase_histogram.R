@@ -2,7 +2,7 @@
 #' @description Plots bar chart showing the phases of studies in a query
 #' @param d the database table.
 #' @return ggplot bar graph showing phases
-#' @importFrom dplyr select mutate distinct group_by summarize rbind
+#' @importFrom dplyr select mutate distinct group_by summarize
 #' @importFrom ggplot2 ggplot aes geom_col theme_bw xlab ylab
 #' @export
 
