@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/kaneplusplus/bis620.2023/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kaneplusplus/bis620.2023/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/aespears/bis620.2023/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aespears/bis620.2023/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of bis620.2023 is to …
@@ -17,18 +17,22 @@ You can install the development version of bis620.2023 from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("kaneplusplus/bis620.2023")
+devtools::install_github("aespears/bis620.2023")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This package makes use of various tools for visualizing and comparing
+clinical trials data, including their condition, phase, and duration. It
+also includes a shiny app that can be viewed to explore clinical trial
+data.
 
 ``` r
 library(bis620.2023)
-accel |> 
-  head(100) |> 
-  plot_accel()
+#> Warning: replacing previous import 'dplyr::sql' by 'dbplyr::sql' when loading
+#> 'bis620.2023'
+studies |> head(100) |>
+  plot_phase_histogram()
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />

@@ -64,15 +64,9 @@ server <- function(input, output) {
 
   # reactive: special shiny function that reacts to user input
   get_studies = reactive({
-    if (input$brief_title_kw != "") {
-      si = input$brief_title_kw |>
-        strsplit(",") |>
-        unlist() |>
-        trimws()
-      ret = query_kwds(studies, si, "brief_title", match_all = TRUE)
-    } else {
+
       ret = studies
-    }
+
     if (!is.null(input$source_class)){
       ret <- ret |> filter(source_class %in% !!input$source_class)
     }
@@ -107,12 +101,12 @@ server <- function(input, output) {
       plot_condition_histogram()
   })
 
-  output$trial_table = renderDataTable({
+   output$trial_table = renderDataTable({
     get_studies() |>
       select(nct_id, brief_title, start_date, completion_date) |>
       rename(`NCT ID` = nct_id, `Brief Title` = brief_title,
              `Start Date` = start_date, `Completion Date` = completion_date)
-  }, selection = 'single')
+  })
 
   output$duration_plot = renderPlot({
     get_studies() |>
